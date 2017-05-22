@@ -1,3 +1,70 @@
+//**************************************************************************************************
+// FILE: Lab03.cpp
+//
+// DESCRIPTION: Reads three exam scores for three students, calculates and displays the average
+// exam score and the standard deviation of the exam scores.
+//
+// AUTHORS: Rushi Patel
+//
+// COURSE: CSE100 Principles of Programming with C++, Spring 2017
+//
+// LAB INFO: Lab 3 Date/Time:  Lab TA:
+// -------------------------------------------------------------------------------------------------
+// TESTING
+//
+// Test Case 1
+// -----------
+// Description: Tests that the program computes and displays correct exam average and standard
+// deviation.
+//
+// Input Data:
+// Homer's exam score: 73
+// Lisa's exam score: 100
+// Ralph's exam score: 44
+//
+// Expected Output:
+// The exam average score is: 72.33%
+// The exam standard deviation is: 28.01
+//
+// Actual Output:
+// The exam average score is: 72.33%
+// The exam standard deviation is: 28.01
+//
+// Test 1 Case Results: Passed
+//
+// Test Case 2
+// -----------
+// Homer's exam score: 75
+// Lisa's exam score: 90
+// Ralph's exam score: 54
+//
+// Expected Output:
+// The exam average score is: 73%
+// The exam standard deviation is: 18.08
+//
+// Actual Output:
+// The exam average score is: 73%
+// The exam standard deviation is: 18.08
+//
+// Test 2 Case Results: Passed
+//
+// Test Case 3
+// -----------
+// Homer's exam score: 80
+// Lisa's exam score: 100
+// Ralph's exam score: 70
+//
+// Expected Output:
+// The exam average score is: 83.33%
+// The exam standard deviation is: 15.275
+//
+// Actual Output:
+// The exam average score is: 83.33%
+// The exam standard deviation is: 15.275
+//
+// Test 3 Case Results: Passed
+//
+//**************************************************************************************************
 #include <iostream>
 #include <cmath>
 #include <iomanip>
