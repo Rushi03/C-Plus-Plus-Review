@@ -1,3 +1,14 @@
+//**************************************************************************************************
+// FILE: Lab02.cpp
+//
+// DESCRIPTION: Displays average rainfall for a three month period.
+//
+// AUTHOR: Rushi Patel
+//
+// COURSE: CSE100 Principles of Programming with C++, Spring 2017
+//
+// LAB INFO: Lab 2 Date/Time:  Lab TA:
+//**************************************************************************************************
 #include <iostream>
 #include <iomanip>
 
