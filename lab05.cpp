@@ -80,10 +80,10 @@ using namespace std;
 // Write the prototype for the output_player_stats() function. Hint: just copy-
 // and-paste the function header and then make it a statement by writing a semi-
 // colon at the end of the line.
-???
+output_player_stats();
 
 // Write the prototype for the terminate() function.
-???
+terminate();
 
 //------------------------------------------------------------------------------
 // FUNCTION: compute_per_game_stats()
@@ -100,13 +100,13 @@ using namespace std;
 void compute_per_game_stats(ifstream& fin, ofstream& fout)
 {
     // Define int variables: gp, fm, fga, ftm, fta, threem, threea, pts, rebs
-    ???
+    int gp, fm, fga, ftm, fta, threem, threea, pts, rebs;
 
     // Define double variables: fgp, ftp, threep, ppg, rpg
-    ???
+    double fgp, ftp, threep, ppg, rpg;
 
     // Define string object/variable: name
-    ???
+    string name;
 
     // Do not worry about what the 'while' reserved word means. We will discuss
     // it when we cover Ch 5 of the book. If you are curious, the 'while' code
@@ -117,33 +117,40 @@ void compute_per_game_stats(ifstream& fin, ofstream& fout)
 
         // Read nine values from fin storing the values in the variables gp, fgm,
         // fga, ftm, fta, threem, threea, pts, and rebs -- in that order.
-        ???
+        fin >> gp;
+        fin >> fgm;
+        fin >> fga;
+        fin >> fta;
+        fin >> threem;
+        fin >> threea;
+        fin >> pts;
+        fin >> rebs;
 
         // Calculate the player's field goal percentage which is fgm / fga. Note:
         // since fgm and fga are both ints, the division will be performed as
         // integer division. However, we must perform floating point division,
         // so typecast fgm to double before dividing.
-        ???
+        fpg = static_cast<double>(fgm) / fga;
 
         // Calculate the player's free throw percentage which is ftm / fta. Note:
         // Typecast ftm to double.
-        ???
+        ftp = static_cast<double>(ftm) / fta;
 
         // Calculate the player's three point percentage which is threem / threea.
         // Note: Typecast threem to double.
-        ???
+        threep = static_cast<double>(threem) / threea;
 
         // Calculate the player's points per game, which is pts / gp. Note:
         // Typecast pts to double.
-        ???
+        ppg = static_cast<double>(pts) / gp;
 
         // Calculate the player's rebounds per game, which is rebs / gp. Note:
         // Typecast rebs to double.
-        ???
+        rpg = static_cast<double>(rebs) / gp;
 
         // Call output_player_stats() to output the player's stats. The args are
         // fout, name, gp, fgp, ftp, threep, ppg, and rpg.
-        ???
+        output_player_stats(fout, name, gp, fgp, ftp, threep, ppg, rpg);
 
         // Read the name of the next player from the input file.
         fin >> name;
@@ -197,7 +204,7 @@ void open_output_file(ofstream& fout, string filename)
 {
     // Call the open() function on the fout parameter. See open_input_file()
     // for how to do this.
-    ???
+    fout.open(filename.c_str());
 
     // See comments in open_input_file().
     if (!fout) {
@@ -246,27 +253,27 @@ void output_player_stats(ofstream& fout, string name, int gp, double fgp,
 {
     // Configure fout for fixed mode, left justification, and a field width of
     // 16. Then output the value of variable 'name'.
-    ???
+    fout << left << setw(16) << name;
 
     // Configure fout for right justification, display 1 digit after the decimal
     // point, and a field width of 4. Then output the value of variable gp.
-    ???
+    fout << right << fixed(1) << setw(4) << gp;
 
     // Configure fout for a field of width 6. Output ppg.
-    ???
+    fout << setw(6) << ppg;
 
     // Configure fout for a field of width 6. Output rpg.
-    ???
+    fout << setw(6) << rpg;
 
     // Configure fout for 3 digits after the decimal point, and a field width
     // of 7. Then output the value of variable fgp.
-    ???
+    fout << fixed(3) << setw(7) << fgp;
 
     // Configure fout for a field of width 7. Output ftp.
-    ???
+    fout << setw(7) << ftp;
 
     // Configure fout for a field of width 7. Output threep.
-    ???
+    fout << setw(7) << threep;
 
     // Send a newline to fout.
     fout << \n;
@@ -288,7 +295,7 @@ void output_player_stats(ofstream& fout, string name, int gp, double fgp,
 void terminate(string msg)
 {
     // Send msg to cout to display the message on the output window.
-    ???
+    cout << msg;
 
     // There is a function in the C++SL called exit(). It has one parameter,
     // which is an int. exit() will terminate the program and send the int param
@@ -311,26 +318,27 @@ void terminate(string msg)
 int main()
 {
     // Define an ifstream object named fin (fin = File INput).
-    ???
+    ifstream fin;
 
     // Define an ofstream object named fout (fout = File OUTput).
-    ???
+    ofstream fout;
 
     // Call open_input_file() passing fin and the input file name as args.
-    ???
+    open_input_file(fin, filename);
 
     // Call open_output_file() passing fout and the output file name as args.
-    ???
+    open_output_file(fout, filename);
 
     // Call output_header() passing fout as the arg.
-    ???
+    output_header(fout);
 
     // Call compute_per_game_stats() passing fin and fout as args.
-    ???
+    compute_per_game_stats(fin, fout);
 
     // Close the input and output files by calling the close() functions on fin
     // and fout.
-    ???
+    fin.close();
+    fout.close();
 
     // Return 0 from main().
     return 0;
